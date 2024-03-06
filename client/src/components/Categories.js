@@ -7,7 +7,7 @@ const Categories = () => {
     const [listCats, setListCats] = useState([]);
     useEffect(() => {
         async function fetchData() {
-            var result = await axios('http://localhost:3001/categories');
+            var result = await axios('http://localhost:3001/cat');
             setListCats(result.data);
         }
         fetchData();
@@ -19,7 +19,7 @@ const Categories = () => {
             <div className="clr" />
             <ul className="sb_menu">
                 {listCats.map(cat =>
-                    <li key={cat.id}><Link to='/cat'>{cat.name}</Link></li>
+                    <li key={cat.id}><Link to={'/cat/' + cat.id}>{cat.name}</Link></li>
                 )}
             </ul>
         </>

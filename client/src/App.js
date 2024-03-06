@@ -11,8 +11,8 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Index />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/cat' element={<Cat />} />
-        <Route path='/detail' element={<Detail />} />
+        <Route path='/cat/:cId' element={<Cat />} />
+        <Route path='/detail/:dId' element={<Detail />} />
       </Routes>
     </Router>
   )

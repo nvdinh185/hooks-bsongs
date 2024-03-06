@@ -1,15 +1,18 @@
 {
-  "name": "hooks-bsongs",
+  "name": "note-bsongs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --watch db.json --port 3001",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "json-server": "^0.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "formidable": "^1.2.6",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.22"
   }
 }

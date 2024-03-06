@@ -13,7 +13,7 @@ const Index = () => {
     const [listSongs, setListSongs] = useState([]);
     useEffect(() => {
         async function fetchData() {
-            var result = await axios('http://localhost:3001/songs');
+            var result = await axios('http://localhost:3001/song');
             setListSongs(result.data);
         }
         fetchData();
