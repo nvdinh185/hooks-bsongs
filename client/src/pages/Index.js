@@ -28,6 +28,7 @@ const Index = () => {
                         {listSongs.map(song =>
                             <Song
                                 key={song.id}
+                                id={song.id}
                                 name={song.name}
                                 description={song.description}
                                 image={song.image}

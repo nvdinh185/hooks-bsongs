@@ -28,14 +28,14 @@ const Header = () => {
                 <div className="clr" />
                 <div className="slider">
                     <div id="coin-slider">
-                        <a href="#">
+                        <Link to='/'>
                             <img
-                                src="images/slide1.jpg"
+                                src="/images/slide1.jpg"
                                 width={935}
                                 height={307}
                                 alt=""
                             />
-                        </a>
+                        </Link>
                     </div>
                     <div className="clr" />
                 </div>

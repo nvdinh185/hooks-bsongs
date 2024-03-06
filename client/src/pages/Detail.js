@@ -1,3 +1,7 @@
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
+
 import Categories from "../components/Categories";
 import Newsongs from "../components/Newsongs";
 import Header from "../components/Header";
@@ -5,6 +9,18 @@ import Footer from "../components/Footer";
 import Searchform from "../components/Searchform";
 
 const Detail = () => {
+
+    const { dId } = useParams();
+
+    const [songById, setSongById] = useState({});
+    useEffect(() => {
+        async function fetchData() {
+            var result = await axios(`http://localhost:3001/song/songbyid?id=${dId}`);
+            setSongById(result.data);
+        }
+        fetchData();
+    }, []);
+
     return (
         <div className="main">
             <Header />
@@ -14,13 +30,10 @@ const Detail = () => {
                         <div className="article">
                             <h1>Nhạc trẻ</h1>
                             <div className="clr" />
-                            <p>Ngày đăng: 2017-07-02 22:09:13.0. Lượt xem: 0</p>
+                            <p>Ngày đăng: {songById.date_create}. Lượt xem: {songById.counter}</p>
                             <div className="vnecontent">
-                                “Nhớ…tiếng mưa rơi ngày xưu…lúc đôi ta còn nhau, khi tình yêu… bắt
-                                đầu…….” Những ca từ quen thuộc của ngày nào bổng vang lên giữa một
-                                buổi chiều mưa nhẹ rơi…Đã từ rất lâu rồi tôi mới được nghe lại bài
-                                hát này. Bài hát khiến tôi nhớ về kỷ niệm một thời mà tôi cứ nghỡ
-                                như chuyện mới vừa xãy ra hôm qua vậy…!!!.
+                                <h2>{songById.name}</h2>
+                                <p>{songById.detail}</p>
                             </div>
                         </div>
                         <div className="article">
@@ -30,7 +43,7 @@ const Detail = () => {
                                 {" "}
                                 <a href="">
                                     <img
-                                        src="images/only-love.jpg"
+                                        src="/images/only-love.jpg"
                                         width={40}
                                         height={40}
                                         alt=""

@@ -14,7 +14,7 @@ const Searchform = () => {
                 </span>
                 <input
                     name="button_search"
-                    src="images/search.jpg"
+                    src="/images/search.jpg"
                     className="button_search"
                     type="image"
                 />

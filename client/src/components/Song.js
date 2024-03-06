@@ -4,7 +4,7 @@ const Song = (props) => {
     return (
         <div className="article">
             <h2>
-                <Link to='/detail' className="rm">{props.name}</Link>
+                <Link to={'/detail/' + props.id} className="rm">{props.name}</Link>
             </h2>
             <p className="infopost">
                 Ngày đăng: {props.date_create}. Lượt xem: {props.counter}{" "}
@@ -15,7 +15,7 @@ const Song = (props) => {
             <div className="clr" />
             <div className="img">
                 <img
-                    src={"images/" + props.image}
+                    src={"/images/" + props.image}
                     width={177}
                     height={213}
                     alt={props.image}
@@ -25,7 +25,7 @@ const Song = (props) => {
             <div className="post_content">
                 <p>{props.description}</p>
                 <p className="spec">
-                    <Link to='/detail' className="rm">Chi tiết »</Link>
+                    <Link to={'/detail/' + props.id} className="rm">Chi tiết »</Link>
                 </p>
             </div>
             <div className="clr" />

@@ -48,19 +48,19 @@ class NewsController {
         }
     }
 
-    // [GET] /news/newsbyid
-    async getNewsById(req, res) {
+    // [GET] /song/songbyid
+    async getSongById(req, res) {
         var id = req.query.id;
         try {
             var conn = mysql.createConnection(configDB);
 
-            const newsById = await new Promise((resolve, reject) => {
-                conn.query(`SELECT * FROM news WHERE id = ${id}`, (err, row) => {
+            const songById = await new Promise((resolve, reject) => {
+                conn.query(`SELECT * FROM songs WHERE id = ${id}`, (err, row) => {
                     if (err) reject(err);
                     resolve(row);
                 })
             })
-            res.status(200).send(newsById[0]);
+            res.status(200).send(songById[0]);
         } catch (err) {
             res.status(500).send(err);
         } finally {

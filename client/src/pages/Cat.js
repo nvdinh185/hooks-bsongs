@@ -10,14 +10,17 @@ import Song from "../components/Song";
 import Searchform from "../components/Searchform";
 
 const Cat = () => {
-    let { cId } = useParams();
+    const { cId } = useParams();
 
     const [listSongByCat, setListSongByCat] = useState([]);
-    // const [catById, setCatById] = useState({});
+    const [catById, setCatById] = useState({});
     useEffect(() => {
         async function fetchData() {
-            var news = await axios(`http://localhost:3001/song/songsbycat?cid=${cId}`);
-            setListSongByCat(news.data);
+            var songs = await axios(`http://localhost:3001/song/songsbycat?cid=${cId}`);
+            setListSongByCat(songs.data);
+
+            var cat = await axios(`http://localhost:3001/cat/catbyid?id=${cId}`);
+            setCatById(cat.data);
         }
         fetchData();
     }, [cId]);
@@ -29,11 +32,12 @@ const Cat = () => {
                 <div className="content_resize">
                     <div className="mainbar">
                         <div className="article">
-                            <h1>Nhạc trẻ</h1>
+                            <h1>{catById.name}</h1>
                         </div>
                         {listSongByCat.map(song =>
                             <Song
                                 key={song.id}
+                                id={song.id}
                                 name={song.name}
                                 description={song.description}
                                 image={song.image}
