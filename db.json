@@ -1,0 +1,45 @@
+{
+    "songs": [
+        {
+            "id": 1,
+            "name": "Đổi thay",
+            "description": "Nhớ tiếng mưa rơi ngày xưu…lúc đôi ta còn nhau, khi tình yêu",
+            "detail": "Đã từ rất lâu rồi tôi mới được nghe lại bài hát này.",
+            "image": "doi-thay.jpg",
+            "date_create": "2017-07-02 22:09:13.0",
+            "counter": 1
+        },
+        {
+            "id": 2,
+            "name": "Nơi ấy con tìm về",
+            "description": "Nhớ tiếng mưa rơi ngày xưu…lúc đôi ta còn nhau, khi tình yêu",
+            "detail": "Đã từ rất lâu rồi tôi mới được nghe lại bài hát này.",
+            "image": "noi-ay-con-tim-ve.jpg",
+            "date_create": "2017-07-02 22:09:13.0",
+            "counter": 2
+        },
+        {
+            "id": 3,
+            "name": "Only love",
+            "description": "Nhớ tiếng mưa rơi ngày xưu…lúc đôi ta còn nhau, khi tình yêu",
+            "detail": "Đã từ rất lâu rồi tôi mới được nghe lại bài hát này.",
+            "image": "only-love.jpg",
+            "date_create": "2017-07-02 22:09:13.0",
+            "counter": 3
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "Nhạc trẻ"
+        },
+        {
+            "id": 2,
+            "name": "Nhạc dance"
+        },
+        {
+            "id": 3,
+            "name": "Nhạc thiếu nhi"
+        }
+    ]
+}
