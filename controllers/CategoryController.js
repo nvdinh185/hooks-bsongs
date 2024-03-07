@@ -5,7 +5,7 @@ const configDB = {
     host: "localhost",
     user: "root",
     password: "123456",
-    database: "bsongs"
+    database: "my_songs"
 };
 
 class CategoryController {

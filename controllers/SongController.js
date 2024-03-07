@@ -4,7 +4,7 @@ const configDB = {
     host: "localhost",
     user: "root",
     password: "123456",
-    database: "bsongs"
+    database: "my_songs"
 };
 
 class NewsController {
@@ -16,6 +16,25 @@ class NewsController {
 
             const listSongs = await new Promise((resolve, reject) => {
                 conn.query(`SELECT * FROM songs`, (err, row) => {
+                    if (err) reject(err);
+                    resolve(row);
+                })
+            })
+            res.status(200).send(listSongs);
+        } catch (err) {
+            res.status(500).send(err);
+        } finally {
+            conn.end();
+        }
+    }
+
+    // [GET] /song/new
+    async getListNewSongs(req, res) {
+        try {
+            var conn = mysql.createConnection(configDB);
+
+            const listSongs = await new Promise((resolve, reject) => {
+                conn.query(`SELECT * FROM songs ORDER BY date_create DESC LIMIT 3`, (err, row) => {
                     if (err) reject(err);
                     resolve(row);
                 })
@@ -55,7 +74,8 @@ class NewsController {
             var conn = mysql.createConnection(configDB);
 
             const songById = await new Promise((resolve, reject) => {
-                conn.query(`SELECT * FROM songs WHERE id = ${id}`, (err, row) => {
+                conn.query(`SELECT *, songs.name AS song_name, categories.name AS cat_name
+                FROM songs JOIN categories ON songs.cat_id = categories.id WHERE songs.id = ${id}`, (err, row) => {
                     if (err) reject(err);
                     resolve(row);
                 })

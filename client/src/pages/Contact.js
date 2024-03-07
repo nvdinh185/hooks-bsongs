@@ -65,7 +65,7 @@ const Contact = () => {
                                             type="image"
                                             name="imageField"
                                             id="imageField"
-                                            src="images/submit.gif"
+                                            src="/images/submit.gif"
                                             className="send"
                                         />
                                         <div className="clr" />

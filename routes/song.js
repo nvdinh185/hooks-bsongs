@@ -7,6 +7,7 @@ const middleware = require('../middleware/Middleware');
 router.get('/', songController.getListSongs);
 router.get('/songsbycat', songController.getListSongsByCat);
 router.get('/songbyid', songController.getSongById);
+router.get('/new', songController.getListNewSongs);
 
 // router.post('/contact', middleware.uploadFile, songController.postContact);
 

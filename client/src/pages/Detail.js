@@ -19,7 +19,7 @@ const Detail = () => {
             setSongById(result.data);
         }
         fetchData();
-    }, []);
+    }, [dId]);
 
     return (
         <div className="main">
@@ -28,16 +28,16 @@ const Detail = () => {
                 <div className="content_resize">
                     <div className="mainbar">
                         <div className="article">
-                            <h1>Nhạc trẻ</h1>
+                            <h1>{songById.cat_name}</h1>
                             <div className="clr" />
                             <p>Ngày đăng: {songById.date_create}. Lượt xem: {songById.counter}</p>
                             <div className="vnecontent">
-                                <h2>{songById.name}</h2>
+                                <h2>{songById.song_name}</h2>
                                 <iframe src={'https://www.youtube.com/embed/' + songById.id_link} />
                             </div>
                         </div>
                         <div className="article">
-                            <h2>Bài viết liên quan</h2>
+                            <h2>Bài hát liên quan</h2>
                             <div className="clr" />
                             <div className="comment">
                                 {" "}
