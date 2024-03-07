@@ -33,7 +33,7 @@ const Detail = () => {
                             <p>Ngày đăng: {songById.date_create}. Lượt xem: {songById.counter}</p>
                             <div className="vnecontent">
                                 <h2>{songById.name}</h2>
-                                <p>{songById.detail}</p>
+                                <iframe src={'https://www.youtube.com/embed/' + songById.id_link} />
                             </div>
                         </div>
                         <div className="article">
