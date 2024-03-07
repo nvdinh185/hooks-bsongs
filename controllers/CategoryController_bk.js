@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-const util = require('util');
 
 const configDB = {
     host: "localhost",
@@ -15,9 +14,12 @@ class CategoryController {
         try {
             var conn = mysql.createConnection(configDB);
 
-            const query = util.promisify(conn.query).bind(conn);
-
-            const listCats = await query(`SELECT * FROM categories`);
+            const listCats = await new Promise((resolve, reject) => {
+                conn.query(`SELECT * FROM categories`, (err, row) => {
+                    if (err) reject(err);
+                    resolve(row);
+                })
+            })
             res.status(200).send(listCats);
         } catch (err) {
             res.status(500).send(err);
@@ -32,9 +34,12 @@ class CategoryController {
         try {
             var conn = mysql.createConnection(configDB);
 
-            const query = util.promisify(conn.query).bind(conn);
-
-            const catById = await query(`SELECT * FROM categories WHERE id = ${id}`);
+            const catById = await new Promise((resolve, reject) => {
+                conn.query(`SELECT * FROM categories WHERE id = ${id}`, (err, row) => {
+                    if (err) reject(err);
+                    resolve(row);
+                })
+            })
             res.status(200).send(catById[0]);
         } catch (err) {
             res.status(500).send(err);
