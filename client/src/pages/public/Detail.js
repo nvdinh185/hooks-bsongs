@@ -2,11 +2,11 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 
-import Categories from "../components/Categories";
-import Newsongs from "../components/Newsongs";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Searchform from "../components/Searchform";
+import Categories from "../../components/Categories";
+import Newsongs from "../../components/Newsongs";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import Searchform from "../../components/Searchform";
 
 const Detail = () => {
 

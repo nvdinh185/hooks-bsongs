@@ -23,6 +23,11 @@ const Header = () => {
                                 <span>Liên hệ</span>
                             </Link>
                         </li>
+                        <li>
+                            <Link to='/admin'>
+                                <span>Admin</span>
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div className="clr" />
